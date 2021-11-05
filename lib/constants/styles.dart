@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Color active = Color(0xFFF7650F);
-Color notActive = Color(0xFFB2B2BD);
+Color notActive = Color(0xFFB6B6B6);
 Color hoverColor = Color(0xFFD9D9D9);
 Color leftBar = Color(0xffFBFBFB);
-Color dark = Color(0xFF363740);
-Color darkMain = Color(0xFF000223);
+//Color dark = Color(0xFF363740);
+Color darkMain = Color(0xFF121212);
 Color white = Color(0xFFffffff);
 
 Text normal(String text, double fontSize, Color color) => Text(
       text,
+      textAlign: TextAlign.center,
       style: GoogleFonts.poppins(
         fontSize: fontSize,
         fontWeight: FontWeight.w500,
@@ -20,6 +21,7 @@ Text normal(String text, double fontSize, Color color) => Text(
 
 Text extraNormal(String text, double fontSize, Color color) => Text(
       text,
+      textAlign: TextAlign.center,
       style: GoogleFonts.poppins(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,

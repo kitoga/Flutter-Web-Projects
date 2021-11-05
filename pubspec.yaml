@@ -27,6 +27,8 @@ dependencies:
   google_fonts: ^2.1.0
   responsive_builder: ^0.4.1
   flutter_feather_icons: ^2.0.0+1
+  percent_indicator: ^3.4.0
+  fl_chart: ^0.40.2
   
 
 

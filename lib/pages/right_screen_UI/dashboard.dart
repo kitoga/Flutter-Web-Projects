@@ -1,15 +1,21 @@
 import 'package:barafiri_admin/constants/styles.dart';
 import 'package:barafiri_admin/controllers/model.dart/orders_model_data.dart';
+import 'package:barafiri_admin/widgets/chart_data.dart';
+import 'package:barafiri_admin/widgets/freelance.dart';
+import 'package:barafiri_admin/widgets/reviews.dart';
+import 'package:barafiri_admin/widgets/sme.dart';
+import 'package:barafiri_admin/widgets/top_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final padding = EdgeInsets.fromLTRB(35, 0, 35, 0);
     return SingleChildScrollView(
       child: Padding(
@@ -21,8 +27,8 @@ class Dashboard extends StatelessWidget {
               padding: padding,
               child: Row(
                 children: [
-                  normal('Hi Perry, ', 22, notActive),
-                  normal('Good Morning', 22, active),
+                  normal('Hi Perry,', 23, notActive),
+                  normal(' Good Morning', 23, active),
                 ],
               ),
             ),
@@ -45,7 +51,7 @@ class Dashboard extends StatelessWidget {
                   OrderCards(
                       '500k', 'Pending Orders', active, Icons.pending_actions),
                   SizedBox(width: 20),
-                  OrderCards('900k', 'Orders Received', Colors.purple,
+                  OrderCards('900k', 'Orders Received', Color(0xff906ed1),
                       Icons.shopping_bag),
                   SizedBox(width: 20),
                   OrderCards('500k', 'Shipped Orders', Colors.blue.shade300,
@@ -68,17 +74,17 @@ class Dashboard extends StatelessWidget {
               padding: padding,
               child: Row(
                 children: [
-                  OrderCards(
-                      '500k', 'Active Products', active, Icons.pending_actions),
+                  ProductCards(
+                      '500k', 'Active Products', active, FeatherIcons.archive),
                   SizedBox(width: 20),
-                  OrderCards(
-                      '100k', 'Brands', Colors.purple, Icons.shopping_bag),
+                  ProductCards(
+                      '100k', 'Brands', Color(0xff906ed1), FeatherIcons.award),
                   SizedBox(width: 20),
-                  OrderCards('45', 'Product \nCategories', Colors.blue.shade300,
-                      Icons.local_shipping),
+                  ProductCards('45', 'Product \nCategories',
+                      Colors.blue.shade300, FeatherIcons.database),
                   SizedBox(width: 20),
-                  OrderCards('400k', 'Sold Products', Colors.green,
-                      Icons.local_shipping),
+                  ProductCards(
+                      '400k', 'Sold Products', Colors.green, Icons.receipt),
                 ],
               ),
             ),
@@ -89,6 +95,43 @@ class Dashboard extends StatelessWidget {
               padding: padding,
               child: contentNormalLight('Categories & Users', 20, notActive),
             ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 100, 30),
+              child: Row(
+                children: [
+                  Expanded(child: SMEs()),
+                  SizedBox(width: 15),
+                  Expanded(child: Freelancers()),
+                  SizedBox(width: 15),
+                  Expanded(child: TopCategory()),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 100, 30),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 35),
+                          child:
+                              contentNormalLight('Sales Chart', 20, notActive),
+                        ),
+                        SizedBox(height: 15),
+                        ChartData()
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  Expanded(
+                    child: Reviews(),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -114,7 +157,7 @@ class OrderCards extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       height: height / 7,
-      width: width / 7,
+      width: width / 6,
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.circular(10),
@@ -126,10 +169,12 @@ class OrderCards extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            orderIcon,
-            size: 50,
-            color: active,
+          Expanded(
+            child: Icon(
+              orderIcon,
+              size: 50,
+              color: orderColor,
+            ),
           ),
           SizedBox(width: 10),
           Container(
@@ -138,13 +183,16 @@ class OrderCards extends StatelessWidget {
             color: notActive,
           ),
           SizedBox(width: 10),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              extraNormal(orderNumber, 26, notActive),
-              normal(orderText, 16, notActive),
-            ],
+          Expanded(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                extraNormal(orderNumber, 26, darkMain.withOpacity(0.7)),
+                normal(orderText, 16, darkMain.withOpacity(0.7)),
+              ],
+            ),
           )
         ],
       ),
@@ -154,15 +202,15 @@ class OrderCards extends StatelessWidget {
 
 class ProductCards extends StatelessWidget {
   const ProductCards(
-    this.orderNumber,
-    this.orderText,
-    this.orderColor,
-    this.orderIcon,
+    this.productNumber,
+    this.productText,
+    this.productColor,
+    this.productIcon,
   );
-  final String orderNumber;
-  final String orderText;
-  final Color orderColor;
-  final IconData orderIcon;
+  final String productNumber;
+  final String productText;
+  final Color productColor;
+  final IconData productIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -170,22 +218,24 @@ class ProductCards extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       height: height / 7,
-      width: width / 7,
+      width: width / 6,
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: orderColor,
+          color: productColor,
           width: .8,
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            orderIcon,
-            size: 50,
-            color: active,
+          Expanded(
+            child: Icon(
+              productIcon,
+              size: 50,
+              color: productColor,
+            ),
           ),
           SizedBox(width: 10),
           Container(
@@ -194,13 +244,16 @@ class ProductCards extends StatelessWidget {
             color: notActive,
           ),
           SizedBox(width: 10),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              extraNormal(orderNumber, 26, notActive),
-              normal(orderText, 16, notActive),
-            ],
+          Expanded(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                extraNormal(productNumber, 26, darkMain.withOpacity(0.7)),
+                normal(productText, 16, darkMain.withOpacity(0.7)),
+              ],
+            ),
           )
         ],
       ),
