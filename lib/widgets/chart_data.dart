@@ -37,47 +37,53 @@ class ChartData extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.shopping_bag_outlined,
-                                      size: 35, color: Colors.green),
-                                  SizedBox(width: 5),
-                                  normal(
-                                      '₦10,500', 30, darkMain.withOpacity(0.8)),
-                                  SizedBox(width: 15),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        FeatherIcons.arrowUp,
-                                        color: Colors.green,
-                                        size: 14,
-                                      ),
-                                      normal('8.30', 12, Colors.green)
-                                    ],
-                                  ),
-                                  Spacer(),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 0),
-                                    child: Container(
-                                      height: 50,
-                                      width: 130,
-                                      color: active,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Row(
-                                          children: [
-                                            normal('May', 16, darkMain),
-                                            Spacer(),
-                                            Icon(
-                                                Icons.arrow_drop_down_outlined),
-                                          ],
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.shopping_bag_outlined,
+                                        size: 35, color: Colors.green),
+                                    SizedBox(width: 5),
+                                    normal('₦10,500', 30,
+                                        darkMain.withOpacity(0.8)),
+                                    SizedBox(width: 15),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          FeatherIcons.arrowUp,
+                                          color: Colors.green,
+                                          size: 14,
+                                        ),
+                                        normal('8.30', 12, Colors.green)
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 0),
+                                      child: Container(
+                                        height: 50,
+                                        width: 130,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: leftBar, width: 2),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Row(
+                                            children: [
+                                              normal('May', 16, darkMain),
+                                              Spacer(),
+                                              Icon(Icons
+                                                  .arrow_drop_down_outlined),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                             Expanded(

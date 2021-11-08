@@ -20,7 +20,7 @@ class Freelancers extends StatelessWidget {
               extraNormal(
                 'Total Freelancers for \nthe week',
                 18,
-                darkMain.withOpacity(0.8),
+                Colors.white,
               ),
               SizedBox(height: 10),
               Padding(

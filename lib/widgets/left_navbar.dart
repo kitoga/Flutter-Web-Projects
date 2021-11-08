@@ -27,159 +27,165 @@ class _LeftNavbarState extends State<LeftNavbar> {
   Widget build(BuildContext context) {
     return Container(
       height: 350.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(37, 30, 0, 15),
-            child: normal('APPLICATION', 16, notActive),
-          ),
-          MainMenuItem(
-            itemName: 'Dashboard',
-            iconName: Icons.poll_rounded,
-            touched: () {
-              setState(() {
-                select(0);
-              });
-            },
-            active: selected[0],
-          ),
-          MainMenuItem(
-            itemName: 'Product Categories',
-            iconName: FeatherIcons.database,
-            touched: () {
-              setState(() {
-                select(1);
-              });
-            },
-            active: selected[1],
-          ),
-          MainMenuItem(
-            itemName: 'Product',
-            iconName: FeatherIcons.database,
-            touched: () {
-              setState(() {
-                select(2);
-              });
-            },
-            active: selected[2],
-          ),
-          MainMenuItem(
-            itemName: 'Orders',
-            iconName: FeatherIcons.checkSquare,
-            touched: () {
-              setState(() {
-                select(3);
-              });
-            },
-            active: selected[3],
-          ),
-          MainMenuItem(
-            itemName: 'Brands',
-            iconName: FeatherIcons.briefcase,
-            touched: () {
-              setState(() {
-                select(4);
-              });
-            },
-            active: selected[4],
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(37, 30, 0, 15),
-            child: normal('USERS', 16, notActive),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 35.0),
-            child: DropDownMenuItem(
-              itemName: 'Service Providers',
-              iconName: FeatherIcons.userCheck,
-              dropDownName: FeatherIcons.chevronDown,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(37, 30, 0, 15),
+              child: normal('APPLICATION', 16, notActive),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 54.0),
-            child: SubDropDownMenuItem(
-              itemName: 'Freelances',
+            MainMenuItem(
+              itemName: 'Dashboard',
+              iconName: Icons.poll_rounded,
               touched: () {
                 setState(() {
-                  select(5);
+                  select(0);
                 });
               },
-              active: selected[5],
+              active: selected[0],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 54.0),
-            child: SubDropDownMenuItem(
-              itemName: 'SMEs',
+            MainMenuItem(
+              itemName: 'Product Categories',
+              iconName: FeatherIcons.database,
               touched: () {
                 setState(() {
-                  select(6);
+                  select(1);
                 });
               },
-              active: selected[6],
+              active: selected[1],
             ),
-          ),
-          MainMenuItem(
-            itemName: 'Customers',
-            iconName: FeatherIcons.smile,
-            touched: () {
-              setState(() {
-                select(7);
-              });
-            },
-            active: selected[7],
-          ),
+            MainMenuItem(
+              itemName: 'Product',
+              iconName: FeatherIcons.database,
+              touched: () {
+                setState(() {
+                  select(2);
+                });
+              },
+              active: selected[2],
+            ),
+            MainMenuItem(
+              itemName: 'Orders',
+              iconName: FeatherIcons.checkSquare,
+              touched: () {
+                setState(() {
+                  select(3);
+                });
+              },
+              active: selected[3],
+            ),
+            MainMenuItem(
+              itemName: 'Brands',
+              iconName: FeatherIcons.briefcase,
+              touched: () {
+                setState(() {
+                  select(4);
+                });
+              },
+              active: selected[4],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(37, 30, 0, 15),
+              child: normal('USERS', 16, notActive),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 35.0),
+              child: DropDownMenuItem(
+                itemName: 'Service Providers',
+                iconName: FeatherIcons.userCheck,
+                dropDownName: FeatherIcons.chevronDown,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 35.0),
+              child: SubDropDownMenuItem(
+                itemName: 'Freelances',
+                touched: () {
+                  setState(() {
+                    select(5);
+                  });
+                },
+                active: selected[5],
+                iconName: Icons.person,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 35.0),
+              child: SubDropDownMenuItem(
+                itemName: 'SMEs',
+                touched: () {
+                  setState(() {
+                    select(6);
+                  });
+                },
+                active: selected[6],
+                iconName: Icons.person,
+              ),
+            ),
+            MainMenuItem(
+              itemName: 'Customers',
+              iconName: FeatherIcons.smile,
+              touched: () {
+                setState(() {
+                  select(7);
+                });
+              },
+              active: selected[7],
+            ),
 
-          ///
-          ///Users Section
-          Padding(
-            padding: EdgeInsets.fromLTRB(37, 30, 0, 15),
-            child: normal('OTHERS', 16, notActive),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 35.0),
-            child: DropDownMenuItem(
-              itemName: 'Marketing',
-              iconName: FeatherIcons.monitor,
-              dropDownName: FeatherIcons.chevronDown,
+            ///
+            ///Users Section
+            Padding(
+              padding: EdgeInsets.fromLTRB(37, 30, 0, 15),
+              child: normal('OTHERS', 16, notActive),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 54.0),
-            child: SubDropDownMenuItem(
-              itemName: 'Google Smart Shopping',
+            Padding(
+              padding: const EdgeInsets.only(left: 35.0),
+              child: DropDownMenuItem(
+                itemName: 'Marketing',
+                iconName: FeatherIcons.monitor,
+                dropDownName: FeatherIcons.chevronDown,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 54.0),
+              child: SubDropDownMenuItem(
+                itemName: 'Google Smart Shopping',
+                touched: () {
+                  setState(() {
+                    //select(5);
+                  });
+                },
+                active: selected[5],
+                iconName: Icons.person,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 54.0),
+              child: SubDropDownMenuItem(
+                itemName: 'Facebook Marketing',
+                touched: () {
+                  setState(() {
+                    //select(6);
+                  });
+                },
+                active: selected[6],
+                iconName: Icons.person,
+              ),
+            ),
+            MainMenuItem(
+              itemName: 'Coupons',
+              iconName: FeatherIcons.smile,
               touched: () {
                 setState(() {
-                  //select(5);
+                  //select(7);
                 });
               },
-              active: selected[5],
+              active: selected[7],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 54.0),
-            child: SubDropDownMenuItem(
-              itemName: 'Facebook Marketing',
-              touched: () {
-                setState(() {
-                  //select(6);
-                });
-              },
-              active: selected[6],
-            ),
-          ),
-          MainMenuItem(
-            itemName: 'Coupons',
-            iconName: FeatherIcons.smile,
-            touched: () {
-              setState(() {
-                //select(7);
-              });
-            },
-            active: selected[7],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -127,7 +127,27 @@ class Dashboard extends StatelessWidget {
                   ),
                   SizedBox(width: 15),
                   Expanded(
-                    child: Reviews(),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 35),
+                              child: contentNormalLight(
+                                  'Recent Reviews', 20, notActive),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 35),
+                              child: contentNormalLight('View All', 14, active),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Reviews(),
+                      ],
+                    ),
                   ),
                 ],
               ),
