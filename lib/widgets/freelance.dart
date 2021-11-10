@@ -1,4 +1,5 @@
 import 'package:barafiri_admin/constants/styles.dart';
+import 'package:barafiri_admin/helpers/responsiveness.dart';
 import 'package:flutter/material.dart';
 
 class Freelancers extends StatelessWidget {
@@ -33,13 +34,64 @@ class Freelancers extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            maxRadius: 25,
-                            backgroundImage:
-                                AssetImage('assets/images/admin.jpeg'),
-                          ),
-                          title: normal('Joseph O. Kennedy', 16, Colors.white),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title:
+                                  normal('Joseph O. Kennedy', 13, Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal('Ernest Odudu', 13, Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal('Gift O. ', width < 900 ? 12 : 14,
+                                  Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal('Tosin Babytos', 13, Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal('David Thompson', 13, Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal('Olatan Aluk', 13, Colors.white),
+                            ),
+                          ],
                         ),
                       );
                     },

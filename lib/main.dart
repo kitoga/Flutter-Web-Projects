@@ -1,4 +1,4 @@
-import 'package:barafiri_admin/pages/site%20content/site_layout.dart';
+import 'package:barafiri_admin/site_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

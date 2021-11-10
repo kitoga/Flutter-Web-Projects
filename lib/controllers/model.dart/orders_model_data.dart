@@ -13,7 +13,8 @@ class Orders {
 
 List<Orders> orderData = [
   Orders('500k', 'Pending Orders', active, Icons.pending_actions),
-  Orders('900k', 'Orders Received', active, Icons.shopping_bag),
-  Orders('500k', 'Shipped Orders', active, Icons.local_shipping),
-  Orders('400k', 'Shipped Orders', active, Icons.local_shipping),
+  Orders('900k', 'Orders Received', Colors.purple, Icons.shopping_bag),
+  Orders('500k', 'Shipped Orders', Colors.lightBlueAccent.shade400,
+      Icons.local_shipping),
+  Orders('400k', 'Orders Delivered', Colors.green, Icons.local_shipping),
 ];

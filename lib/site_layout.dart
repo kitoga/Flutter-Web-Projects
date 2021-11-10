@@ -1,3 +1,4 @@
+import 'package:barafiri_admin/helpers/responsiveness.dart';
 import 'package:barafiri_admin/pages/site%20content/Content_Tablet_web.dart';
 import 'package:barafiri_admin/pages/site%20content/content_mobile.dart';
 import 'package:barafiri_admin/pages/top_navigation/navigation_bar.dart';
@@ -14,9 +15,8 @@ class SiteAdminLayout extends StatelessWidget {
         children: [
           NavigationBar(),
           Expanded(
-              child: ScreenTypeLayout(
+              child: Responsive(
             mobile: ContentMobile(),
-            tablet: ContentTabletWeb(),
             desktop: ContentTabletWeb(),
           ))
         ],

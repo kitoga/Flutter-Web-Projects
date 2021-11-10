@@ -1,4 +1,5 @@
 import 'package:barafiri_admin/constants/styles.dart';
+import 'package:barafiri_admin/helpers/responsiveness.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -23,6 +24,20 @@ class NavbarTabletDesktop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Visibility(
+              visible: Responsive.isTablet(context) ? true : false,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.menu,
+                    color: darkMain,
+                    size: 32,
+                  ),
+                ),
+              ),
+            ),
             Container(
               height: 30,
               width: 180,
@@ -93,7 +108,7 @@ class NavbarTabletDesktop extends StatelessWidget {
               Icons.arrow_drop_down,
               color: darkMain,
               size: 30,
-            )
+            ),
           ],
         ),
       ),
