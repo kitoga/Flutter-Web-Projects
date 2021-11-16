@@ -64,7 +64,7 @@ class SmesData extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 40.0, right: 40),
           child: Container(
-            color: active,
+            //color: active,
             height: 40,
             child: FittedBox(
               alignment: Alignment.center,

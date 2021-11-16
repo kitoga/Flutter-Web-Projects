@@ -56,63 +56,118 @@ class Dashboard extends StatelessWidget {
               padding: padding,
               child: contentNormalLight('Categories & Users', 20, notActive),
             ),
+            SizedBox(height: 15),
+            if (Responsive.isMobile(context))
+              Padding(
+                padding: padding,
+                child: SMEs(),
+              ),
+            SizedBox(height: 15),
+            if (Responsive.isMobile(context))
+              Padding(
+                padding: padding,
+                child: Freelancers(),
+              ),
+            SizedBox(height: 15),
+            if (Responsive.isMobile(context))
+              Padding(
+                padding: padding,
+                child: TopCategory(),
+              ),
+
+            SizedBox(width: 15),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
               child: Row(
                 children: [
-                  Expanded(child: SMEs()),
+                  if (!Responsive.isMobile(context)) Expanded(child: SMEs()),
                   SizedBox(width: 15),
-                  Expanded(child: Freelancers()),
+                  if (!Responsive.isMobile(context))
+                    Expanded(child: Freelancers()),
                   SizedBox(width: 15),
-                  Expanded(child: TopCategory()),
+                  if (!Responsive.isMobile(context))
+                    Expanded(child: TopCategory()),
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30, 0, 100, 30),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 35),
-                          child:
-                              contentNormalLight('Sales Chart', 20, notActive),
-                        ),
-                        SizedBox(height: 15),
-                        ChartData()
-                      ],
+            if (!Responsive.isMobile(context))
+              Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 100, 30),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 35),
+                            child: contentNormalLight(
+                                'Sales Chart', 20, notActive),
+                          ),
+                          SizedBox(height: 15),
+                          ChartData()
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 15),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                    SizedBox(width: 15),
+                    if (!Responsive.isMobile(context))
+                      Expanded(
+                        child: Column(
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 35),
-                              child: contentNormalLight(
-                                  'Recent Reviews', 20, notActive),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 35),
+                                  child: contentNormalLight(
+                                      'Recent Reviews', 20, notActive),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 35),
+                                  child: contentNormalLight(
+                                      'View All', 14, active),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(right: 35),
-                              child: contentNormalLight('View All', 14, active),
-                            ),
+                            SizedBox(height: 15),
+                            Reviews(),
                           ],
                         ),
-                        SizedBox(height: 15),
-                        Reviews(),
-                      ],
-                    ),
+                      ),
+                  ],
+                ),
+              ),
+
+            ///
+            ///
+            ///
+            ///Responsiveness
+            if ((Responsive.isMobile(context)) &&
+                !Responsive.isDesktop(context))
+              Padding(
+                padding: EdgeInsets.only(left: 35),
+                child: contentNormalLight('Sales Chart', 20, notActive),
+              ),
+            SizedBox(height: 15),
+            ChartData(),
+            if (Responsive.isMobile(context) && !Responsive.isDesktop(context))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 35),
+                    child: contentNormalLight('Recent Reviews', 20, notActive),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 35),
+                    child: contentNormalLight('View All', 14, active),
                   ),
                 ],
               ),
-            )
+            SizedBox(height: 15),
+            Reviews(),
           ],
         ),
       ),

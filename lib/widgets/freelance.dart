@@ -42,26 +42,9 @@ class Freelancers extends StatelessWidget {
                                 backgroundImage:
                                     AssetImage('assets/images/admin.jpeg'),
                               ),
-                              title:
-                                  normal('Joseph O. Kennedy', 13, Colors.white),
-                            ),
-                            SizedBox(height: 6),
-                            ListTile(
-                              leading: CircleAvatar(
-                                maxRadius: 25,
-                                backgroundImage:
-                                    AssetImage('assets/images/admin.jpeg'),
-                              ),
-                              title: normal('Ernest Odudu', 13, Colors.white),
-                            ),
-                            SizedBox(height: 6),
-                            ListTile(
-                              leading: CircleAvatar(
-                                maxRadius: 25,
-                                backgroundImage:
-                                    AssetImage('assets/images/admin.jpeg'),
-                              ),
-                              title: normal('Gift O. ', width < 900 ? 12 : 14,
+                              title: normal(
+                                  'Joseph O. Kennedy',
+                                  Responsive.isMobile(context) ? 16 : 12,
                                   Colors.white),
                             ),
                             SizedBox(height: 6),
@@ -71,7 +54,10 @@ class Freelancers extends StatelessWidget {
                                 backgroundImage:
                                     AssetImage('assets/images/admin.jpeg'),
                               ),
-                              title: normal('Tosin Babytos', 13, Colors.white),
+                              title: normal(
+                                  'Ernest Odudu',
+                                  Responsive.isMobile(context) ? 16 : 12,
+                                  Colors.white),
                             ),
                             SizedBox(height: 6),
                             ListTile(
@@ -80,7 +66,10 @@ class Freelancers extends StatelessWidget {
                                 backgroundImage:
                                     AssetImage('assets/images/admin.jpeg'),
                               ),
-                              title: normal('David Thompson', 13, Colors.white),
+                              title: normal(
+                                  'Gift O.',
+                                  Responsive.isMobile(context) ? 16 : 12,
+                                  Colors.white),
                             ),
                             SizedBox(height: 6),
                             ListTile(
@@ -89,7 +78,34 @@ class Freelancers extends StatelessWidget {
                                 backgroundImage:
                                     AssetImage('assets/images/admin.jpeg'),
                               ),
-                              title: normal('Olatan Aluk', 13, Colors.white),
+                              title: normal(
+                                  'Tosin Babytos',
+                                  Responsive.isMobile(context) ? 16 : 12,
+                                  Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal(
+                                  'David Thompson',
+                                  Responsive.isMobile(context) ? 16 : 12,
+                                  Colors.white),
+                            ),
+                            SizedBox(height: 6),
+                            ListTile(
+                              leading: CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage:
+                                    AssetImage('assets/images/admin.jpeg'),
+                              ),
+                              title: normal(
+                                  'Olatan Aluk',
+                                  Responsive.isMobile(context) ? 16 : 12,
+                                  Colors.white),
                             ),
                           ],
                         ),

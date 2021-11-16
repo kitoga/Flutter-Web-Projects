@@ -1,8 +1,12 @@
+import 'package:barafiri_admin/locator.dart';
+import 'package:barafiri_admin/routing/LayoutTemplate/layout_template.dart';
 import 'package:barafiri_admin/site_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  //this file is created as a function in locator.dart
+  setupLocator();
   runApp(MyApp());
 }
 
@@ -25,7 +29,7 @@ class MyApp extends StatelessWidget {
         }),
         primarySwatch: Colors.orange,
       ),
-      home: SiteAdminLayout(),
+      home: LayoutTemplate(),
     );
   }
 }

@@ -11,11 +11,7 @@ class ContentMobile extends StatelessWidget {
     var _width = MediaQuery.of(context).size.width;
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       return sizingInformation.isMobile
-          ? Container(
-              height: _height,
-              width: _width,
-              color: Colors.green,
-            )
+          ? ContentTabletWeb()
           : ContentTabletWeb();
     });
   }

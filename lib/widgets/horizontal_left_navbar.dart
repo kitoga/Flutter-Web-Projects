@@ -1,5 +1,7 @@
 import 'package:barafiri_admin/constants/styles.dart';
+import 'package:barafiri_admin/pages/right_screen_UI/dashboard.dart';
 import 'package:barafiri_admin/pages/site%20content/horizontal_menu_items.dart';
+import 'package:barafiri_admin/routing/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -36,6 +38,7 @@ class _HorizontalLeftNavbarState extends State<HorizontalLeftNavbar> {
               child: normal('APPLICATION', 16, notActive),
             ),
             HorizontalMainMenuItem(
+              navigationPath: DashBoard,
               itemName: 'Dashboard',
               iconName: Icons.poll_rounded,
               touched: () {
@@ -46,6 +49,7 @@ class _HorizontalLeftNavbarState extends State<HorizontalLeftNavbar> {
               active: selected[0],
             ),
             HorizontalMainMenuItem(
+              navigationPath: Productcategories,
               itemName: 'Product Categories',
               iconName: FeatherIcons.database,
               touched: () {
@@ -55,36 +59,7 @@ class _HorizontalLeftNavbarState extends State<HorizontalLeftNavbar> {
               },
               active: selected[1],
             ),
-            HorizontalMainMenuItem(
-              itemName: 'Product',
-              iconName: FeatherIcons.database,
-              touched: () {
-                setState(() {
-                  select(2);
-                });
-              },
-              active: selected[2],
-            ),
-            HorizontalMainMenuItem(
-              itemName: 'Orders',
-              iconName: FeatherIcons.checkSquare,
-              touched: () {
-                setState(() {
-                  select(3);
-                });
-              },
-              active: selected[3],
-            ),
-            HorizontalMainMenuItem(
-              itemName: 'Brands',
-              iconName: FeatherIcons.briefcase,
-              touched: () {
-                setState(() {
-                  select(4);
-                });
-              },
-              active: selected[4],
-            ),
+            //
             // Padding(
             //   padding: EdgeInsets.fromLTRB(37, 30, 0, 15),
             //   child: normal('USERS', 16, notActive),

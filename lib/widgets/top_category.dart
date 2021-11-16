@@ -1,6 +1,7 @@
 import 'package:barafiri_admin/constants/styles.dart';
 import 'package:barafiri_admin/controllers/model.dart/review_model.dart';
 import 'package:barafiri_admin/controllers/model.dart/top_category.dart';
+import 'package:barafiri_admin/helpers/responsiveness.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -32,7 +33,7 @@ class TopCategory extends StatelessWidget {
         height: 400,
         color: leftBar,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 20, 30, 10),
+          padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
           child: Column(
             children: [
               Row(
@@ -40,7 +41,7 @@ class TopCategory extends StatelessWidget {
                 children: [
                   extraNormal(
                     'Your Top Categories',
-                    18,
+                    14,
                     darkMain.withOpacity(0.8),
                   ),
                   Icon(FeatherIcons.helpCircle, color: Colors.red),
@@ -50,8 +51,9 @@ class TopCategory extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  height: height / 2.4,
-                  width: width,
+                  height:
+                      Responsive.isTablet(context) ? height / 2 : height / 2.4,
+                  width: Responsive.isTablet(context) ? width : width,
                   color: Colors.white,
                   child: ListView.builder(
                     itemCount: _post.length,
@@ -60,14 +62,18 @@ class TopCategory extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: ListTile(
                           leading: CircleAvatar(
-                            maxRadius: 20,
+                            maxRadius: 18,
                             backgroundImage:
                                 AssetImage('${_post[index].topCatImage}'),
                           ),
-                          title: normal('${_post[index].topCatName}', 16,
+                          title: normal(
+                              '${_post[index].topCatName}',
+                              Responsive.isMobile(context) ? 16 : 12,
                               darkMain.withOpacity(0.8)),
-                          trailing:
-                              normal('#1500', 16, darkMain.withOpacity(0.8)),
+                          trailing: normal(
+                              '#1500',
+                              Responsive.isMobile(context) ? 16 : 12,
+                              darkMain.withOpacity(0.8)),
                         ),
                       );
                     },

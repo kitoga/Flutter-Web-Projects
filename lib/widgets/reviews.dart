@@ -7,18 +7,22 @@ class Reviews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 460,
-      color: leftBar,
+    final padding = EdgeInsets.fromLTRB(30, 0, 30, 10);
+    return Padding(
+      padding: padding,
       child: Container(
         height: 500,
-        width: double.infinity,
-        child: Column(
-          children: [
-            Expanded(
-              child: ReviewCards(),
-            ),
-          ],
+        color: leftBar,
+        child: Container(
+          height: 460,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                child: ReviewCards(),
+              ),
+            ],
+          ),
         ),
       ),
     );

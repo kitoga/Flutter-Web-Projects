@@ -1,26 +1,32 @@
 import 'package:barafiri_admin/constants/styles.dart';
 import 'package:barafiri_admin/helpers/responsiveness.dart';
+import 'package:barafiri_admin/locator.dart';
+import 'package:barafiri_admin/services/navigation_services.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HorizontalMainMenuItem extends StatefulWidget {
-  const HorizontalMainMenuItem(
-      {Key? key,
-      required this.itemName,
-      required this.iconName,
-      required this.touched,
-      required this.active})
-      : super(key: key);
+  const HorizontalMainMenuItem({
+    Key? key,
+    required this.itemName,
+    required this.iconName,
+    required this.touched,
+    required this.active,
+    required this.navigationPath,
+  }) : super(key: key);
   final String itemName;
   final IconData iconName;
   final Function touched;
   final bool active;
+  final String navigationPath;
 
   @override
   _HorizontalMainMenuItemState createState() => _HorizontalMainMenuItemState();
 }
 
 class _HorizontalMainMenuItemState extends State<HorizontalMainMenuItem> {
+  //String navigationPath;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -31,6 +37,9 @@ class _HorizontalMainMenuItemState extends State<HorizontalMainMenuItem> {
         onTap: () {
           print(widget.iconName);
           widget.touched();
+
+          //Locator Get-It Service here
+          locator<NavigationServices>().navigateTo(widget.navigationPath);
         },
         //splashColor: Colors.transparent,
         hoverColor: hoverColor.withOpacity(.4),
